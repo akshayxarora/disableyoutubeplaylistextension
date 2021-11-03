@@ -1,0 +1,22 @@
+{
+    "name": "Disable Youtube Playlists",
+    "version": "0.0.1",
+    "manifest_version": 3,
+    "description": "This Extension will remove the youtube playlist",
+    "icons": {
+        "128": "logo.png"
+    },
+    "background": {
+        "service_worker": "background.js"
+    },
+    "permissions": ["storage", "activeTab", "scripting"],
+    "action": {
+        "default_popup": "popup.html"
+    },
+    "content_scripts": [
+        {
+            "matches": ["*://www.youtube.com/watch?*"],
+            "js": ["popup.js"]
+        }
+    ]
+}
