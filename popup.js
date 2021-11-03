@@ -2,7 +2,7 @@ let enable = document.getElementById("enable");
 let disable = document.getElementById("disable");
 
 disable.addEventListener("click", async () => {
-    let tabs = await chrome.tabs.query({ active: true, currentWindow: true });
+    let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
     
     chrome.scripting.executeScript({
         target: { tabId: tab.id },
